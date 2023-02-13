@@ -1,0 +1,24 @@
+<head>
+    <title>PureChart Documentation</title>
+</head>
+
+<div class='docs-split'>
+    <div class='sidebar'>
+        <div>
+            <div class='logo-container'>
+                <%= image_tag "PureChartWhite.png" %>
+            </div>
+
+            <div class='links padding-top'>
+                <%= link_to render(:partial => 'shared/primary_navigation_link', locals: { title: "Getting Started", path: "getting-started" }), 'getting-started' %>
+                <%= link_to render(:partial => 'shared/primary_navigation_link', locals: { title: "Types of Charts", path: "types-of-charts" }), 'types-of-charts' %>
+            </div>
+        </div>
+    </div>
+
+    <div class='content'>
+        <%= turbo_frame_tag "article", src: article_path(params[:title] ? params[:title] : "getting-started") do %>
+            
+        <% end %>
+    </div>
+</div>

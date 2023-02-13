@@ -1,0 +1,235 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Inter:wght@400;700&family=Unbounded:wght@500&display=swap');
+
+ /* GENERAL */
+ html, body, #app {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+ }
+ 
+ h1 {
+     font-family: 'Unbounded', sans-serif;
+     font-size: 2rem;
+     line-height: 2rem;
+ 
+     margin: 0px 0px 16px 0px
+ }
+
+ a {
+    text-decoration: none;
+    color: black;
+ }
+ 
+ /* DOCUMENTATION */
+ .docs-split {
+     display: flex;
+     height: 100%;
+ }
+ 
+ .docs-split .sidebar {
+     width: 300px;
+     height: 100%;
+     flex-shrink: 0;
+ 
+     border-right: 2px solid black;
+ 
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     justify-content: space-between;
+ }
+ 
+ .docs-split .content {
+     flex-grow: 1;
+     padding: var(--space);
+     overflow-y: auto;
+ }
+ 
+ /* MARKDOWN */
+ h2 {
+     font-family: 'Inter', sans-serif;
+     font-weight: 700;
+ }
+ 
+ h3 {
+     font-family: 'Inter', sans-serif;
+     font-weight: 700;
+ }
+ 
+ h4 {
+     font-family: 'Inter', sans-serif;
+     font-weight: 700;
+ }
+ 
+ p, ul li {
+     font-family: 'Inter', sans-serif;
+     font-weight: 400;
+ }
+ 
+ code {
+     background-color: rgba(var(--color-light-gray), 0.5);
+     border: 1px solid rgba(var(--color-light-gray), 1);
+     border-radius: 2px;
+ 
+     font-family: 'DM Mono', monospace;
+     font-size: 0.85rem;
+ }
+ 
+ pre {
+     background-color: rgba(var(--color-light-gray), 0.5);
+     border: 1px solid rgba(var(--color-light-gray), 1);
+     border-radius: 2px;
+ 
+     font-size: 0.85rem;
+ 
+     padding: calc(0.5 * var(--space));
+ }
+ 
+ pre code {
+     background-color: rgba(var(--color-light-gray), 0);
+     border: none;
+ }
+ 
+ /* SIDEBAR */
+ .logo-container {
+     height: 100px;
+     width: 100%;
+ 
+     background-color: black;
+     padding: var(--space);
+ }
+ 
+ .logo-container img {
+     width: 100%;
+ }
+ 
+ .links {
+     display: flex;
+     align-items: end;
+     flex-direction: column;
+ 
+     width: 200px;
+     float: right;
+ }
+ 
+ .sidebar .bottom {
+     width: 100%;
+     border-top: 2px solid black;
+ }
+ 
+ .sidebar .bottom a {
+     display: inline-block;
+     width: calc(var(--space) + 3px);
+     height: calc(var(--space) + 2px);
+ 
+     padding: calc(0.25 * var(--space));
+ 
+     border-right: 2px solid black;
+ }
+ 
+ .sidebar .bottom img {
+     vertical-align: middle;
+     height: 100%;
+ }
+ 
+ .navigation-span {
+     display: block;
+     text-align: left;
+ 
+     font-family: 'Inter', sans-serif;
+     font-size: 1rem;
+     font-weight: 400;
+ 
+     padding: calc(0.25 * var(--space));
+     border-radius: 4px 0px 0px 4px;
+ 
+     transition: 0.25s all ease;
+     cursor: pointer;
+ 
+     margin-bottom: 4px;
+ }
+ 
+ .navigation-span:hover {
+     background-color: rgba(var(--color-light-gray), 0.5);
+ }
+ 
+ .navigation-span.active {
+     font-weight: 700;
+ 
+     background-color: rgb(var(--color-light-gray));
+ 
+     padding: calc(0.5 * var(--space));
+ }
+ 
+ .navigation-span.first {
+     width: 100%;
+ }
+ 
+ .navigation-span.secondary {
+     width: 85%;
+ }
+ 
+ span.bold {
+     font-weight: 700;
+ }
+ 
+ span.light-gray {
+     color: rgb(var(--color-light-gray));
+ }
+ 
+ .inline {
+     display: inline-block !important;
+ }
+ 
+ /* PADDING */
+ .padding-left {
+     padding-left: var(--space);
+ }
+ 
+ .padding-top {
+     padding-top: var(--space);
+ }
+ 
+ .padding-right {
+     padding-right: var(--space);
+ }
+ 
+ h1.centered {
+     text-align: center;
+ }
+ 
+ .full-width {
+     width: 100%;
+ }
+ 
+ /* MARKDOWN */
+ article img {
+     width: 500px;
+     max-width: 100%;
+     margin: 0 auto;
+     display: block;
+ }
+ 
+ .margin-right {
+     margin-right: var(--space);
+ }
+ 
+ .margin-right-half {
+     margin-right: calc(0.5 * var(--space));
+ }
+ 
+ /* VARIABLES */
+ :root {
+     --space: 32px;
+ 
+     --color-light-gray: 223, 230, 233;
+ }
+ 
+ * {
+     box-sizing: border-box;
+ }
