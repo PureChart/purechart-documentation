@@ -45,6 +45,9 @@ RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
 # Final stage for app image
 FROM base
 
+# Install Python 3.11
+RUN apt-get update -qq && \
+    apt-get install -y python3
 
 # Copy built application from previous stage
 COPY --from=build /rails /rails
