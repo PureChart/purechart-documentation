@@ -2,7 +2,7 @@
     <title>PureChart Documentation</title>
 </head>
 
-<div class='docs-split'>
+<div class='docs-split' data-controller="articles--page">
     <div class='sidebar'>
         <div>
             <div class='logo-container'>
@@ -10,15 +10,19 @@
             </div>
 
             <div class='links padding-top'>
-                <%= link_to render(:partial => 'shared/primary_navigation_link', locals: { title: "Getting Started", path: "getting-started" }), 'getting-started' %>
-                <%= link_to render(:partial => 'shared/primary_navigation_link', locals: { title: "Types of Charts", path: "types-of-charts" }), 'types-of-charts' %>
+                <%= button_tag "Getting Started", id: "getting-started", class: "nav-button", data: { action: "click->articles--page#navigate" } %>
+                <%= button_tag "Types of Charts", id: "types-of-charts", class: "nav-button", data: { action: "click->articles--page#navigate" } %>
             </div>
         </div>
     </div>
 
     <div class='content'>
-        <%= turbo_frame_tag "article", src: article_path(params[:title] ? params[:title] : "getting-started") do %>
-            
+        <%= turbo_frame_tag "article" do %>
+            <p>Loading...</p>
         <% end %>
     </div>
 </div>
+
+<script>
+
+</script>

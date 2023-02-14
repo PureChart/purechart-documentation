@@ -137,13 +137,17 @@
      height: 100%;
  }
  
- .navigation-span {
+ .docs-split .sidebar button {
      display: block;
      text-align: left;
  
      font-family: 'Inter', sans-serif;
      font-size: 1rem;
      font-weight: 400;
+
+     background-color: rgba(0, 0, 0, 0);
+     border: none;
+     outline: none;
  
      padding: calc(0.25 * var(--space));
      border-radius: 4px 0px 0px 4px;
@@ -154,11 +158,11 @@
      margin-bottom: 4px;
  }
  
- .navigation-span:hover {
+ .docs-split .sidebar button:hover {
      background-color: rgba(var(--color-light-gray), 0.5);
  }
  
- .navigation-span.active {
+ .docs-split .sidebar button.active {
      font-weight: 700;
  
      background-color: rgb(var(--color-light-gray));
@@ -166,11 +170,11 @@
      padding: calc(0.5 * var(--space));
  }
  
- .navigation-span.first {
+ .docs-split .sidebar button.first {
      width: 100%;
  }
  
- .navigation-span.secondary {
+ .docs-split .sidebar button.secondary {
      width: 85%;
  }
  
