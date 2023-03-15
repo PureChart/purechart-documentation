@@ -11,6 +11,7 @@ body,
 	padding: 0;
 	height: 100%;
 
+	position: relative;
 	overflow-x: hidden;
 }
 
@@ -177,6 +178,7 @@ a.social img {
 	font-weight: 400;
 
 	background-color: rgba(0, 0, 0, 0);
+	color: rgb(0, 0, 0);
 	border: none;
 	outline: none;
 
