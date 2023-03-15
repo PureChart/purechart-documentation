@@ -48,3 +48,6 @@ end
     <%= lollipop_chart @data, @axes %>
 </div>
 ```
+
+#### Result
+![Lollipop Chart](./images/charts/Lollipop.png)

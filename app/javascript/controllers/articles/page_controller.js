@@ -21,6 +21,14 @@ export default class extends Controller {
     document.getElementById(fragment).classList.add("active");
   }
 
+  displayMenu() {
+    document.getElementsByClassName("sidebar")[0].classList.add("visible")
+  }
+
+  closeMenu() {
+    document.getElementsByClassName("sidebar")[0].classList.remove("visible")
+  }
+
   navigate(event) {
     // Remove 'active' class from all navigation buttons
     let buttons = document.getElementsByClassName('nav-button');
@@ -39,5 +47,8 @@ export default class extends Controller {
 
     // Update window fragment
     window.location.hash = event.srcElement.id;
+
+    // Close sidebar if visible (mobile)
+    document.getElementsByClassName("sidebar")[0].classList.remove("visible")
   }
 }

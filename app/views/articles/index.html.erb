@@ -4,9 +4,13 @@
 
 <div class='docs-split' data-controller="articles--page">
     <div class='sidebar'>
-        <div>
+        <div style="width: 100%">
             <div class='logo-container'>
-                <%= image_tag "PureChartWhite.png" %>
+                <%= image_tag "PureChartWhite.png", class: "sidebar-logo" %>
+
+                <button class="clear menu-button" data-action="articles--page#closeMenu">
+                    <%= image_tag "Close.png", class: "menu" %>
+                </button>
             </div>
 
             <div class='links padding-top'>
@@ -23,9 +27,19 @@
     </div>
 
     <div class='content'>
-        <%= turbo_frame_tag "article" do %>
-            <p>Loading...</p>
-        <% end %>
+        <div class="mobile-logo-container">
+            <%= image_tag "PureChartWhite.png", class: "mobile-logo margin-bottom-half" %>
+            
+            <button class="clear menu-button" data-action="articles--page#displayMenu">
+                <%= image_tag "Menu.png", class: "menu" %>
+            </button>
+        </div>
+
+        <div class="article-container">
+            <%= turbo_frame_tag "article" do %>
+                <p>Loading...</p>
+            <% end %>
+        </div>
     </div>
 </div>
 
