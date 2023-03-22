@@ -129,8 +129,8 @@ pre code {
 }
 
 .menu {
-	width: 24px;
-	height: 24px;
+	width: 16px;
+	height: 16px;
 
 	display: block;
 	margin: 0 auto;
@@ -145,7 +145,7 @@ pre code {
 	float: right;
 }
 
-.sidebar .bottom {
+.sidebar .bottom, .mobile-sidebar .bottom {
 	width: 100%;
 	padding: calc(0.5 * var(--space));
 
@@ -169,7 +169,7 @@ a.social img {
 	height: 100%;
 }
 
-.docs-split .sidebar button {
+.sidebar button, .mobile-sidebar button {
 	display: block;
 	text-align: left;
 
@@ -192,11 +192,11 @@ a.social img {
 	margin-bottom: 4px;
 }
 
-.docs-split .sidebar button:hover {
+.sidebar button:hover, .mobile-sidebar button:hover {
 	background-color: rgba(var(--color-light-gray), 0.5);
 }
 
-.docs-split .sidebar button.active {
+.sidebar button.active, .mobile-sidebar button.active {
 	font-weight: 700;
 
 	background-color: rgb(var(--color-light-gray));
@@ -204,11 +204,11 @@ a.social img {
 	padding: calc(0.5 * var(--space));
 }
 
-.docs-split .sidebar button.first {
+.sidebar button.first, .mobile-sidebar button.first {
 	width: 100%;
 }
 
-.docs-split .sidebar button.secondary {
+.sidebar button.secondary, .mobile-sidebar button.secondary {
 	width: 85%;
 }
 
@@ -274,14 +274,14 @@ h1.centered {
 	background-color: black;
 	padding: var(--space);
 	display: none;
+	height: 100px;
 }
 
 .mobile-logo {
-	width: 200px;
+	width: 150px;
 	max-width: 100%;
 
 	display: block;
-	margin: 0 auto;
 }
 
 .menu-button {
@@ -299,12 +299,6 @@ h1.centered {
 	background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.mobile-logo-container button,
-.logo-container button {
-	margin: 0 auto !important;
-	display: none !important;
-}
-
 .logo-container .menu-button {
 	padding: 4px;
 }
@@ -316,27 +310,38 @@ h1.centered {
 	--color-light-gray: 223, 230, 233;
 }
 
+.mobile-sidebar {
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
+
+	background-color: white;
+	visibility: hidden;
+
+	transform: translateX(100%);
+	opacity: 0;
+	transition: 0.25s all ease;
+}
+
+.mobile-sidebar.visible {
+	transform: translateX(0px);
+	opacity: 1;
+}
+
 @media only screen and (max-width: 750px) {
 	.sidebar {
-		position: absolute;
-		width: 100% !important;
-		background-color: white;
-		transform: translateX(100%);
-		transition: 0.25s all ease;
+		display: none !important;
 	}
 
-	.sidebar.visible {
-		transform: translateX(0px);
-	}
-
-	.sidebar-logo {
-		width: 200px;
-		max-width: 100%;
-
-		display: block;
-		margin: 0 auto;
-
-		margin-bottom: calc(0.5 * var(--space));
+	.mobile-sidebar {
+		visibility: visible;
 	}
 
 	.content {
@@ -344,7 +349,9 @@ h1.centered {
 	}
 
 	.mobile-logo-container {
-		display: block;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	.mobile-logo-container button,
