@@ -26,6 +26,7 @@ h1 {
 a {
 	text-decoration: none;
 	color: black;
+	border-bottom: 1px solid black;
 }
 
 /* DOCUMENTATION */
@@ -98,6 +99,13 @@ pre {
 pre code {
 	background-color: rgba(var(--color-light-gray), 0);
 	border: none;
+}
+
+blockquote {
+	padding-left: 16px;
+    color: #9197a1;
+    margin: 0;
+    border-left: 3px solid #9ca3af;
 }
 
 .highlight {
