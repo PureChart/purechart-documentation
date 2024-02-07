@@ -58,3 +58,62 @@ This will create a few new files. We're most interested in...
 
 - The controller (`app/controllers/dashboard_controller.rb`), and
 - The view (`app/views/dashboard/index.htmk.erb`).
+
+But before we dive into them, go ahead and visit `http://127.0.0.1:3001/dashboard` - you should see a page that looks like this.
+
+![New Dashboard Page](./images/other/NewDashboardPage.png)
+
+### Add Data
+We can't generate a chart without data, can we? Go to `app/controllers/dashboard_controller.rb`. Right now, it just has an empty `index` method.
+
+```ruby
+class DashboardController < ApplicationController
+    def index
+    end
+end
+```
+
+Let's add some fake data for our chart to display. In reality, this data might come from our database or an external source - it might even be live! After doing this, the controller should look like this.
+
+```ruby
+class DashboardController < ApplicationController
+    def index
+        @data = [
+            {
+                name: "Burger King",
+                color: "#ff7f50",
+                value: 1200
+            },
+            {
+                name: "McDonalds",
+                color: "#ff4757",
+                value: 500
+            },
+            {
+                name: "Green Burrito",
+                color: "#2ed573",
+                value: 780
+            }
+        ]
+
+        @configuration = {
+            axes: {
+                horizontal: "Dollars",
+            }
+        }
+    end
+end
+```
+
+### Generate Chart
+Time for the magic! Go to `app/views/dashboard/index.htmk.erb`. This is the template that will be used when users send a `GET` request to `/dashboard`.
+
+Replace its content with the following -
+
+```erb
+<%= lollipop_chart @data, @configuration %>
+```
+
+Finally, we can enjoy the results!
+
+![DashboardFinished](./images/other/DashboardFinished.png)
