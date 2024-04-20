@@ -57,6 +57,16 @@ a {
 	padding: var(--space);
 }
 
+
+.nested-page{
+	font-size: 0.9rem !important; 
+	border-radius: 0px !important;
+	border-left: 4px solid #dfe6e9 !important;
+	margin-left: 20px !important;
+	--space: 24px;
+}
+
+
 /* MARKDOWN */
 h2 {
 	font-family: 'Inter', sans-serif;
@@ -146,11 +156,11 @@ blockquote {
 
 .links {
 	display: flex;
-	align-items: end;
+	align-items: start;
 	flex-direction: column;
 
 	width: 200px;
-	float: right;
+	margin-left:30px;
 }
 
 .sidebar .bottom, .mobile-sidebar .bottom {
