@@ -32,9 +32,15 @@
     <div class='mobile-sidebar'>
         <div style="width: 100%">
             <div class='links padding-top'>
-                <%= button_tag "Getting Started", id: "getting-started", class: "nav-button getting-started", data: { action: "click->articles--page#navigate" } %>
-                <%= button_tag "Types of Charts", id: "types-of-charts", class: "nav-button types-of-charts", data: { action: "click->articles--page#navigate" } %>
-                <%= button_tag "Chart Styling", id: "chart-styling", class: "nav-button chart-styling", data: { action: "click->articles--page#navigate" } %>
+                <% @nav_tree.each do |key, value| %>
+                    <%= button_tag key, id: value["Index"], class: "nav-button #{value['Index']}", data: { action: "click->articles--page#navigate" } %>
+
+                    <% value.each do |skey, svalue| %>
+                        <% if skey != "Index" %>
+                            <%= button_tag skey, id: svalue["Index"], class: "nav-button #{svalue['Index']} nested-page-button", data: { action: "click->articles--page#navigate" } %>
+                        <% end %>
+                    <% end %>
+                <% end %>
             </div>
         </div>
 
