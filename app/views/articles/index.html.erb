@@ -11,11 +11,11 @@
 
             <div class='links padding-top'>
                 <% @nav_tree.each do |key, value| %>
-                    <%= button_tag key, id: value["Index"], class: "nav-button #{value}", data: { action: "click->articles--page#navigate" } %>
+                    <%= button_tag key, id: value["Index"], class: "nav-button #{value['Index']}", data: { action: "click->articles--page#navigate" } %>
 
                     <% value.each do |skey, svalue| %>
                         <% if skey != "Index" %>
-                            <%= button_tag skey, id: svalue["Index"], class: "nav-button #{svalue}", data: { action: "click->articles--page#navigate" } %>
+                            <%= button_tag skey, id: svalue["Index"], class: "nav-button #{svalue['Index']} nested-page-button", data: { action: "click->articles--page#navigate" } %>
                         <% end %>
                     <% end %>
                 <% end %>

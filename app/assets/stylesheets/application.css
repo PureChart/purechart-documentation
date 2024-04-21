@@ -57,15 +57,13 @@ a {
 	padding: var(--space);
 }
 
-
-.nested-page{
+.nested-page-button {
 	font-size: 0.9rem !important; 
 	border-radius: 0px !important;
 	border-left: 4px solid #dfe6e9 !important;
 	margin-left: 20px !important;
 	--space: 24px;
 }
-
 
 /* MARKDOWN */
 h2 {
@@ -201,7 +199,7 @@ a.social img {
 	outline: none;
 
 	padding: calc(0.25 * var(--space));
-	border-radius: 4px 0px 0px 4px;
+	border-radius: 4px;
 
 	transition: 0.25s all ease;
 	cursor: pointer;
@@ -212,6 +210,7 @@ a.social img {
 
 .sidebar button:hover, .mobile-sidebar button:hover {
 	background-color: rgba(var(--color-light-gray), 0.5);
+	border-radius: 4px !important;
 }
 
 .sidebar button.active, .mobile-sidebar button.active {
@@ -220,6 +219,7 @@ a.social img {
 	background-color: rgb(var(--color-light-gray));
 
 	padding: calc(0.5 * var(--space));
+	border-radius: 4px !important;
 }
 
 .sidebar button.first, .mobile-sidebar button.first {
