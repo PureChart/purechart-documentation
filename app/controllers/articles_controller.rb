@@ -28,10 +28,44 @@ class ArticlesController < ApplicationController
   def index
     @parent_path = request.path
     puts "PATH = " + @parent_path
+    puts File.basename(Dir.getwd)
+    @nav_tree = walk("./app/markdown", "")
+    puts @nav_tree
+  end
+
+  def titleize(name)
+    lowercase_words = %w{a an the and but or for nor of}
+    name.split.each_with_index.map{|x, index| lowercase_words.include?(x) && index > 0 ? x : x.capitalize }.join(" ")
+  end
+
+  def walk(start, parent)
+    temp_hash = {}
+
+    Dir.foreach(start) do |x|
+      path = File.join(start, x)
+      if x == "." or x == ".."
+        next
+      elsif File.directory?(path)
+        # puts path + "/" # remove this line if you want; just prints directories
+        name = titleize(x.gsub('-', ' '))
+        temp_hash[name] = walk(path, parent + "_" + x)
+      else
+        # Convert path to name
+        name = titleize(x[0..-4].gsub('-', ' '))
+
+        temp_hash[name] = parent + '_' + x[0..-4]
+
+        if parent == ""
+          temp_hash[name] = name
+        end
+      end
+    end
+
+    temp_hash
   end
 
   def open_article
-    title = Rails.root.to_s + "/app/markdown/" + params[:title] + ".md"
+    title = Rails.root.to_s + "/app/markdown/" + params[:title].gsub('_', '/') + ".md"
     @content = markdown(File.read(title))
   end
 

@@ -10,7 +10,7 @@ export default class extends Controller {
 
     // Account for empty fragment
     if (fragment === "" || fragment === undefined) {
-      window.location.hash = "getting-started";
+      window.location.hash = "getting-started_index";
       fragment = window.location.hash.split("#")[1];
     }
 
