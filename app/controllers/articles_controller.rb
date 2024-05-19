@@ -6,7 +6,18 @@
 class ArticlesController < ApplicationController
   class HTMLwithPygments < Redcarpet::Render::HTML
       def block_code(code, language)
-          Pygments.highlight(code, lexer: language)
+        puts code
+        result = Pygments.highlight(code, lexer: language)
+        result = "<div class=\"code-block\">
+          #{result}
+          <button class=\"clipboard-button\" onclick=\"
+            parent = this.parentElement;
+            content = parent.getElementsByClassName('highlight')[0].textContent;
+            navigator.clipboard.writeText(content);
+          \">📋</button>
+        </div>"
+        result
+        
       end
   end
 

@@ -116,7 +116,13 @@ blockquote {
     border-left: 3px solid #9ca3af;
 }
 
+.code-block {
+	position: relative;
+}
+
 .highlight {
+	padding-right: 40px;
+
 	background-color: rgba(var(--color-light-gray), 0.5);
 	border: 1px solid rgba(var(--color-light-gray), 1);
 	border-radius: 2px;
@@ -130,6 +136,27 @@ blockquote {
 
 	padding: 0px calc(0.5 * var(--space)) 0px calc(0.5 * var(--space));
 	width: fit-content;
+}
+
+.clipboard-button {
+	position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: 1px solid #cacfd2;
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+
+	padding: 0;
+	line-height: 24px;
+
+	cursor: pointer;
+	transition: 0.25s all ease;
+}
+
+.clipboard-button:hover {
+	background-color: #cacfd2;
 }
 
 /* SIDEBAR */
@@ -345,6 +372,7 @@ h1.centered {
 	transform: translateX(100%);
 	opacity: 0;
 	transition: 0.25s all ease;
+	z-index: 2;
 }
 
 .mobile-sidebar.visible {
